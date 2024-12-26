@@ -1,12 +1,11 @@
 REGFLAG_END_OF_TABLE = 0xFD
 REGFLAG_DELAY = 0xFE
 
-# reg, count, cmd
+# reg, count, cmd, maybe later ill calculate these for you too
 struct_sizes = [1, 1, 64]
 
 def main():
     hex_arr = []
-    hex_raw_arr = []
     count = 0
     need_cnt = False
     need_delay_amt = False
@@ -33,7 +32,6 @@ def main():
                     if count <= 0:
                         continue
                 _hex = int(_hex, 16)
-                hex_raw_arr.append(_hex)
                 if need_cnt:
                     count = _hex
                     (cur_tbl())[1] = count
